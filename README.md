@@ -1,65 +1,52 @@
-# 🛡️ Credit Card Fraud Detection
+# 💳 Credit Card Fraud Detection
 
-A machine learning web application that detects fraudulent credit card transactions in real time using a trained ML model deployed with Streamlit.
+A Machine Learning-powered web application that detects fraudulent credit card transactions in real time. Built with **Streamlit** and deployed on **Streamlit Cloud**.
 
----
-
-## 🔗 Live Demo
-👉 [Click here to open the app](https://your-app-link.streamlit.app)
+🔗 **Live Demo:** [Click here to try the app](https://credit-card-fraud-detection-2bgzv39fkrsrzxkxuq5y2m.streamlit.app/)
 
 ---
 
 ## 📌 Project Overview
 
-Credit card fraud is a major problem worldwide. This project uses machine learning to classify transactions as **fraudulent** or **legitimate** based on transaction features.
-
-The app allows:
-- Single transaction prediction with instant result
-- Batch prediction by uploading a CSV file
-- Adjustable detection threshold using a slider
+Credit card fraud is a major financial threat. This app uses a trained machine learning model to predict whether a given transaction is **fraudulent or legitimate** based on transaction features.
 
 ---
 
-## 🖼️ App Preview
-
-| Single Prediction | Batch Prediction |
-|---|---|
-| Enter transaction features manually | Upload CSV and get results for all rows |
-| Shows fraud probability | Shows total fraud count and flagged transactions |
-
----
-
-## 🗂️ Project Structure
+## 📁 Project Structure
 
 ```
-Credit-Card-Fraud-Detection/
+credit-card-fraud-detection/
 ├── pkl/
-│   ├── fraud_model.pkl          # Trained ML model
-│   └── fraud_scaler.pkl         # Fitted scaler for Amount feature
-├── Credit_Card_Fraud_Detection.ipynb   # Model training notebook
-├── streamlit_app.py             # Streamlit web application
+│   └── fraud_model.pkl          # Trained ML model
+├── Model/
+│   └── Credit_Card_Fraud_Detection.ipynb  # Training notebook
+├── application.py               # Streamlit app
 ├── requirements.txt             # Python dependencies
-└── README.md                    # Project documentation
+├── runtime.txt                  # Python version (3.11)
+└── README.md
 ```
 
 ---
 
-## 🧠 Model Details
+## ✨ Features
 
-- **Dataset:** [Kaggle Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-- **Total Records:** 284,807 transactions
-- **Fraud Cases:** 492 (0.17% — highly imbalanced)
-- **Features:** Time, V1–V28 (PCA components), Amount
-- **Target:** Class (0 = Legitimate, 1 = Fraud)
+- 🔍 **Single Transaction Prediction** — Enter transaction features manually and get an instant fraud/legitimate verdict
+- 📊 **Batch Prediction** — Upload a CSV file to predict fraud across multiple transactions at once
+- 📥 **Downloadable Results** — Download batch prediction results as a CSV
+- ⚡ **Fast & Lightweight** — Cached model loading for quick inference
 
 ---
 
-## ⚙️ How It Works
+## 🤖 Model Details
 
-1. User enters transaction features (Time, V1–V28, Amount)
-2. The `Amount` feature is scaled using the saved scaler
-3. The trained model predicts fraud probability
-4. If probability ≥ threshold → **FRAUD**, else → **LEGITIMATE**
+| Property | Value |
+|----------|-------|
+| Algorithm | Random Forest / XGBoost |
+| Training Library | scikit-learn |
+| Dataset | Credit Card Fraud Detection (Kaggle) |
+| Target Variable | `Class` (0 = Legitimate, 1 = Fraud) |
+
+> **Note:** The dataset is highly imbalanced — fraudulent transactions account for only ~0.17% of all transactions.
 
 ---
 
@@ -67,8 +54,8 @@ Credit-Card-Fraud-Detection/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/Dhairya-45/Credit-Card-Fraud-Detection.git
-cd Credit-Card-Fraud-Detection
+git clone https://github.com/Dhairya-45/credit-card-fraud-detection.git
+cd credit-card-fraud-detection
 ```
 
 **2. Install dependencies**
@@ -78,12 +65,7 @@ pip install -r requirements.txt
 
 **3. Run the app**
 ```bash
-streamlit run streamlit_app.py
-```
-
-**4. Open in browser**
-```
-http://localhost:8501
+streamlit run application.py
 ```
 
 ---
@@ -91,32 +73,25 @@ http://localhost:8501
 ## 📦 Requirements
 
 ```
-streamlit
-numpy
+streamlit>=1.35.0
 pandas
+numpy
 scikit-learn
+xgboost
 ```
 
 ---
 
-## 📊 Results
+## 📊 Dataset
 
-| Metric | Score |
-|---|---|
-| Accuracy | ~99% |
-| Precision | High |
-| Recall | High |
-| Model Type | Random Forest / Logistic Regression |
+The dataset used for training is the [Credit Card Fraud Detection dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) from Kaggle.
+
+- **284,807** transactions
+- **492** fraudulent cases
+- Features are PCA-transformed (V1–V28) + `Time` and `Amount`
 
 ---
 
 ## 👨‍💻 Author
 
-**Dhairya**
-- GitHub: [@Dhairya-45](https://github.com/Dhairya-45)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+**Dhairya** — [GitHub](https://github.com/Dhairya-45)
