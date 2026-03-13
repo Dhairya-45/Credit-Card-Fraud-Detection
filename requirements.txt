@@ -1,5 +1,5 @@
-pandas
-numpy
-scikit-learn
-xgboost
-streamlit
+echo streamlit>=1.35.0 > requirements.txt
+echo pandas >> requirements.txt
+echo numpy >> requirements.txt
+echo scikit-learn >> requirements.txt
+echo xgboost >> requirements.txt
